@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Career Hub - Your Path to Success</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts - Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc; /* Light gray background */
+        }
+        /* Custom scrollbar for better aesthetics */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #e2e8f0;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #94a3b8;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #64748b;
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <!-- Navigation Bar -->
+    <nav class="bg-white shadow-md py-4 px-6 md:px-12 fixed w-full z-50 rounded-b-xl">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-indigo-700">CareerHub</a>
+            <div class="hidden md:flex space-x-8">
+                <a href="#job-listings" class="text-gray-600 hover:text-indigo-700 font-medium transition duration-300">Jobs</a>
+                <a href="#resume-builder" class="text-gray-600 hover:text-indigo-700 font-medium transition duration-300">Resume</a>
+                <a href="#skill-development" class="text-gray-600 hover:text-indigo-700 font-medium transition duration-300">Skills</a>
+                <a href="#career-guidance" class="text-gray-600 hover:text-indigo-700 font-medium transition duration-300">Guidance</a>
+                <a href="#employer-section" class="text-gray-600 hover:text-indigo-700 font-medium transition duration-300">Employers</a>
+            </div>
+            <div class="md:hidden">
+                <!-- Mobile menu button (Hamburger icon) -->
+                <button id="mobile-menu-button" class="text-gray-600 focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile menu dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-2">
+            <a href="#job-listings" class="block text-gray-600 hover:text-indigo-700 font-medium py-2 px-4 rounded-md transition duration-300">Jobs</a>
+            <a href="#resume-builder" class="block text-gray-600 hover:text-indigo-700 font-medium py-2 px-4 rounded-md transition duration-300">Resume</a>
+            <a href="#skill-development" class="block text-gray-600 hover:text-indigo-700 font-medium py-2 px-4 rounded-md transition duration-300">Skills</a>
+            <a href="#career-guidance" class="block text-gray-600 hover:text-indigo-700 font-medium py-2 px-4 rounded-md transition duration-300">Guidance</a>
+            <a href="#employer-section" class="block text-gray-600 hover:text-indigo-700 font-medium py-2 px-4 rounded-md transition duration-300">Employers</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="bg-gradient-to-r from-indigo-600 to-purple-700 text-white py-24 pt-40 px-6 md:px-12 text-center rounded-b-3xl shadow-lg">
+        <div class="container mx-auto">
+            <h1 class="text-4xl md:text-5xl font-extrabold mb-4 leading-tight">Your Journey to a Brighter Career Starts Here</h1>
+            <p class="text-lg md:text-xl mb-8 opacity-90">Discover endless opportunities, build a standout resume, and enhance your skills.</p>
+            <button class="bg-white text-indigo-700 hover:bg-indigo-100 font-bold py-3 px-8 rounded-full shadow-lg transform hover:scale-105 transition duration-300">
+                Explore Job Listings
+            </button>
+        </div>
+    </header>
+
+    <main class="container mx-auto py-16 px-6 md:px-12">
+
+        <!-- 1. Job Listings -->
+        <section id="job-listings" class="mb-20 bg-white p-8 rounded-xl shadow-lg">
+            <h2 class="text-3xl font-bold text-indigo-700 mb-8 text-center">Current Job Openings</h2>
+            <p class="text-center text-gray-600 mb-10">Regularly updated with verified job openings across various industries.</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+                <!-- Filter: Location -->
+                <div class="relative">
+                    <label for="location-filter" class="block text-sm font-medium text-gray-700 mb-2">Location</label>
+                    <select id="location-filter" class="block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md shadow-sm">
+                        <option>All Locations</option>
+                        <option>Hyderabad</option>
+                        <option>Bengaluru</option>
+                        <option>Chennai</option>
+                        <option>Delhi NCR</option>
+                        <option>Mumbai</option>
+                    </select>
+                </div>
+                <!-- Filter: Experience Level -->
+                <div class="relative">
+                    <label for="experience-filter" class="block text-sm font-medium text-gray-700 mb-2">Experience Level</label>
+                    <select id="experience-filter" class="block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md shadow-sm">
+                        <option>All Levels</option>
+                        <option>Fresher (0-1 year)</option>
+                        <option>Entry Level (1-3 years)</option>
+                        <option>Mid-Level (3-7 years)</option>
+                        <option>Senior Level (7+ years)</option>
+                    </select>
+                </div>
+                <!-- Filter: Industry -->
+                <div class="relative">
+                    <label for="industry-filter" class="block text-sm font-medium text-gray-700 mb-2">Industry</label>
+                    <select id="industry-filter" class="block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md shadow-sm">
+                        <option>All Industries</option>
+                        <option>Information Technology</option>
+                        <option>Healthcare</option>
+                        <option>Finance</option>
+                        <option>Education</option>
+                        <option>Manufacturing</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Placeholder Job Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-xl transition duration-300 border border-gray-200">
+                    <h3 class="text-xl font-semibold text-indigo-600 mb-2">Software Engineer</h3>
+                    <p class="text-gray-700 mb-1">Tech Solutions Inc.</p>
+                    <p class="text-gray-500 text-sm mb-3">Hyderabad, India | 3-5 Years Experience</p>
+                    <p class="text-gray-600 text-sm line-clamp-3">Developing and maintaining web applications using modern frameworks. Collaborating with cross-functional teams to deliver high-quality software solutions.</p>
+                    <button class="mt-4 w-full bg-indigo-500 text-white py-2 px-4 rounded-md hover:bg-indigo-600 transition duration-300 text-sm font-medium">Apply Now</button>
+                </div>
+                <div class="bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-xl transition duration-300 border border-gray-200">
+                    <h3 class="text-xl font-semibold text-indigo-600 mb-2">Digital Marketing Specialist</h3>
+                    <p class="text-gray-700 mb-1">Global Marketing Agency</p>
+                    <p class="text-gray-500 text-sm mb-3">Bengaluru, India | 1-3 Years Experience</p>
+                    <p class="text-gray-600 text-sm line-clamp-3">Executing digital marketing campaigns, SEO, SEM, and social media management. Analyzing performance metrics and optimizing strategies.</p>
+                    <button class="mt-4 w-full bg-indigo-500 text-white py-2 px-4 rounded-md hover:bg-indigo-600 transition duration-300 text-sm font-medium">Apply Now</button>
+                </div>
+                <div class="bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-xl transition duration-300 border border-gray-200">
+                    <h3 class="text-xl font-semibold text-indigo-600 mb-2">Healthcare Assistant</h3>
+                    <p class="text-gray-700 mb-1">City Hospital</p>
+                    <p class="text-gray-500 text-sm mb-3">Chennai, India | Fresher</p>
+                    <p class="text-gray-600 text-sm line-clamp-3">Assisting medical staff, patient care, and administrative duties. Ensuring a clean and safe environment for patients.</p>
+                    <button class="mt-4 w-full bg-indigo-500 text-white py-2 px-4 rounded-md hover:bg-indigo-600 transition duration-300 text-sm font-medium">Apply Now</button>
+                </div>
+                <!-- Add more job cards as needed -->
+            </div>
+            <div class="text-center mt-10">
+                <button class="bg-indigo-700 text-white py-3 px-8 rounded-full hover:bg-indigo-800 transition duration-300 shadow-md">View All Job Listings</button>
+            </div>
+        </section>
+
+        <!-- 2. Resume Builder Tool -->
+        <section id="resume-builder" class="mb-20 bg-white p-8 rounded-xl shadow-lg">
+            <h2 class="text-3xl font-bold text-indigo-700 mb-8 text-center">Build Your Professional Resume</h2>
+            <p class="text-center text-gray-600 mb-10">Create and download stunning resumes with our easy-to-use tool and professional templates.</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="text-center p-6 bg-indigo-50 rounded-lg shadow-sm border border-indigo-200">
+                    <img src="https://placehold.co/150x100/e0e7ff/4f46e5?text=Template+1" alt="Resume Template 1" class="mx-auto mb-4 rounded-md shadow-md">
+                    <h3 class="text-xl font-semibold text-indigo-600 mb-2">Fresher Template</h3>
+                    <p class="text-gray-600 text-sm">Perfect for recent graduates with limited experience.</p>
+                    <button class="mt-4 bg-indigo-500 text-white py-2 px-5 rounded-md hover:bg-indigo-600 transition duration-300 text-sm">Use Template</button>
+                </div>
+                <div class="text-center p-6 bg-indigo-50 rounded-lg shadow-sm border border-indigo-200">
+                    <img src="https://placehold.co/150x100/e0e7ff/4f46e5?text=Template+2" alt="Resume Template 2" class="mx-auto mb-4 rounded-md shadow-md">
+                    <h3 class="text-xl font-semibold text-indigo-600 mb-2">Experienced Professional</h3>
+                    <p class="text-gray-600 text-sm">Highlight your extensive work history and achievements.</p>
+                    <button class="mt-4 bg-indigo-500 text-white py-2 px-5 rounded-md hover:bg-indigo-600 transition duration-300 text-sm">Use Template</button>
+                </div>
+                <div class="text-center p-6 bg-indigo-50 rounded-lg shadow-sm border border-indigo-200">
+                    <img src="https://placehold.co/150x100/e0e7ff/4f46e5?text=Template+3" alt="Resume Template 3" class="mx-auto mb-4 rounded-md shadow-md">
+                    <h3 class="text-xl font-semibold text-indigo-600 mb-2">Industry Specific</h3>
+                    <p class="text-gray-600 text-sm">Tailored for specific fields like IT, Healthcare, etc.</p>
+                    <button class="mt-4 bg-indigo-500 text-white py-2 px-5 rounded-md hover:bg-indigo-600 transition duration-300 text-sm">Use Template</button>
+                </div>
+            </div>
+            <div class="text-center mt-10">
+                <button class="bg-purple-600 text-white py-3 px-8 rounded-full hover:bg-purple-700 transition duration-300 shadow-md">Start Building Your Resume</button>
+            </div>
+        </section>
+
+        <!-- 3. Skill Development Section -->
+        <section id="skill-development" class="mb-20 bg-white p-8 rounded-xl shadow-lg">
+            <h2 class="text-3xl font-bold text-indigo-700 mb-8 text-center">Enhance Your Skills</h2>
+            <p class="text-center text-gray-600 mb-10">Access free or affordable online courses and government skill development programs.</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="p-6 bg-green-50 rounded-lg shadow-sm border border-green-200">
+                    <h3 class="text-xl font-semibold text-green-700 mb-2">Online Courses</h3>
+                    <p class="text-gray-600 mb-4">Explore a wide range of courses from coding to digital marketing.</p>
+                    <ul class="list-disc list-inside text-gray-700 space-y-2">
+                        <li><a href="#" class="text-blue-600 hover:underline">Introduction to Python Programming</a></li>
+                        <li><a href="#" class="text-blue-600 hover:underline">Digital Marketing Fundamentals</a></li>
+                        <li><a href="#" class="text-blue-600 hover:underline">Advanced Excel for Business</a></li>
+                    </ul>
+                    <button class="mt-6 bg-green-600 text-white py-2 px-5 rounded-md hover:bg-green-700 transition duration-300 text-sm">Browse All Courses</button>
+                </div>
+                <div class="p-6 bg-yellow-50 rounded-lg shadow-sm border border-yellow-200">
+                    <h3 class="text-xl font-semibold text-yellow-700 mb-2">Government Programs</h3>
+                    <p class="text-gray-600 mb-4">Learn about initiatives like Skill India and PMKVY.</p>
+                    <ul class="list-disc list-inside text-gray-700 space-y-2">
+                        <li><a href="#" class="text-blue-600 hover:underline">Skill India Mission</a></li>
+                        <li><a href="#" class="text-blue-600 hover:underline">Pradhan Mantri Kaushal Vikas Yojana (PMKVY)</a></li>
+                        <li><a href="#" class="text-blue-600 hover:underline">National Apprenticeship Promotion Scheme (NAPS)</a></li>
+                    </ul>
+                    <button class="mt-6 bg-yellow-600 text-white py-2 px-5 rounded-md hover:bg-yellow-700 transition duration-300 text-sm">Learn More</button>
+                </div>
+                <div class="p-6 bg-blue-50 rounded-lg shadow-sm border border-blue-200">
+                    <h3 class="text-xl font-semibold text-blue-700 mb-2">Certifications</h3>
+                    <p class="text-gray-600 mb-4">Get certified in in-demand technologies and skills.</p>
+                    <ul class="list-disc list-inside text-gray-700 space-y-2">
+                        <li><a href="#" class="text-blue-600 hover:underline">Data Science Certification</a></li>
+                        <li><a href="#" class="text-blue-600 hover:underline">Cloud Computing Certifications</a></li>
+                        <li><a href="#" class="text-blue-600 hover:underline">Project Management Professional (PMP)</a></li>
+                    </ul>
+                    <button class="mt-6 bg-blue-600 text-white py-2 px-5 rounded-md hover:bg-blue-700 transition duration-300 text-sm">Explore Certifications</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Career Guidance -->
+        <section id="career-guidance" class="mb-20 bg-white p-8 rounded-xl shadow-lg">
+            <h2 class="text-3xl font-bold text-indigo-700 mb-8 text-center">Expert Career Guidance</h2>
+            <p class="text-center text-gray-600 mb-10">Get valuable insights on interviews, CV writing, soft skills, and career planning.</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="p-6 bg-purple-50 rounded-lg shadow-sm border border-purple-200">
+                    <h3 class="text-xl font-semibold text-purple-700 mb-2">Articles & Videos</h3>
+                    <p class="text-gray-600 mb-4">A rich library of resources to help you succeed.</p>
+                    <ul class="list-disc list-inside text-gray-700 space-y-2">
+                        <li><a href="#" class="text-blue-600 hover:underline">Top 10 Interview Tips</a></li>
+                        <li><a href="#" class="text-blue-600 hover:underline">Crafting a Winning Cover Letter</a></li>
+                        <li><a href="#" class="text-blue-600 hover:underline">Developing Essential Soft Skills</a></li>
+                    </ul>
+                    <button class="mt-6 bg-purple-600 text-white py-2 px-5 rounded-md hover:bg-purple-700 transition duration-300 text-sm">Read More</button>
+                </div>
+                <div class="p-6 bg-pink-50 rounded-lg shadow-sm border border-pink-200">
+                    <h3 class="text-xl font-semibold text-pink-700 mb-2">One-on-One Mentorship</h3>
+                    <p class="text-gray-600 mb-4">Connect with experienced professionals for personalized advice.</p>
+                    <p class="text-gray-700 text-sm">Book a session with our career mentors to discuss your career path, interview strategies, and skill development needs.</p>
+                    <button class="mt-6 bg-pink-600 text-white py-2 px-5 rounded-md hover:bg-pink-700 transition duration-300 text-sm">Book a Session</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Job Alerts & Notifications -->
+        <section id="job-alerts" class="mb-20 bg-indigo-50 p-8 rounded-xl shadow-lg text-center">
+            <h2 class="text-3xl font-bold text-indigo-700 mb-6">Never Miss an Opportunity!</h2>
+            <p class="text-gray-700 mb-8">Get email or WhatsApp alerts for new job postings based on your profile and preferences.</p>
+            <form class="max-w-xl mx-auto">
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <input type="email" placeholder="Enter your email address" class="flex-grow p-3 rounded-md border border-gray-300 focus:ring-indigo-500 focus:border-indigo-500 shadow-sm" required>
+                    <button type="submit" class="bg-indigo-600 text-white py-3 px-8 rounded-md hover:bg-indigo-700 transition duration-300 shadow-md">Subscribe Now</button>
+                </div>
+                <p class="text-gray-500 text-sm mt-4">We respect your privacy. You can unsubscribe at any time.</p>
+            </form>
+        </section>
+
+        <!-- 6. Success Stories -->
+        <section id="success-stories" class="mb-20 bg-white p-8 rounded-xl shadow-lg">
+            <h2 class="text-3xl font-bold text-indigo-700 mb-8 text-center">Inspiring Success Stories</h2>
+            <p class="text-center text-gray-600 mb-10">Read real-life stories of individuals who found their dream jobs and built successful careers with our help.</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-gray-50 p-6 rounded-lg shadow-sm border border-gray-200">
+                    <div class="flex items-center mb-4">
+                        <img src="https://placehold.co/60x60/a78bfa/ffffff?text=JD" alt="John Doe" class="w-16 h-16 rounded-full mr-4 object-cover">
+                        <div>
+                            <h3 class="text-xl font-semibold text-indigo-600">John Doe</h3>
+                            <p class="text-gray-500 text-sm">Software Developer at Innovatech</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 italic">"CareerHub transformed my job search. The resume builder was fantastic, and the job alerts led me directly to my current role. Highly recommend!"</p>
+                </div>
+                <div class="bg-gray-50 p-6 rounded-lg shadow-sm border border-gray-200">
+                    <div class="flex items-center mb-4">
+                        <img src="https://placehold.co/60x60/fbcfe8/ffffff?text=AS" alt="Anjali Sharma" class="w-16 h-16 rounded-full mr-4 object-cover">
+                        <div>
+                            <h3 class="text-xl font-semibold text-indigo-600">Anjali Sharma</h3>
+                            <p class="text-gray-500 text-sm">Marketing Manager at BrandBoost</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 italic">"Thanks to CareerHub's skill development courses, I upskilled in digital marketing and landed a managerial position. Their career guidance was invaluable."</p>
+                </div>
+            </div>
+            <div class="text-center mt-10">
+                <button class="bg-indigo-700 text-white py-3 px-8 rounded-full hover:bg-indigo-800 transition duration-300 shadow-md">Read More Stories</button>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white shadow-inner py-8 mt-16">
+        <div class="container mx-auto text-center text-gray-600 text-sm">
+            &copy; 2025 CareerHub. All rights reserved. | <a href="#" class="hover:underline text-indigo-600">Privacy Policy</a> | <a href="#" class="hover:underline text-indigo-600">Terms of Service</a>
+        </div>
+    </footer>
+
+    <!-- Mobile menu toggle script -->
+    <script>
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>
